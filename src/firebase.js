@@ -6,7 +6,7 @@ import 'firebase/storage';
 const firebaseConfig = {
     apiKey: "AIzaSyA1cp1dhZLMr6J-RZheYLPbwfSloqgWR20",
     authDomain: "react-chat-3430b.firebaseapp.com",
-    databaseURL: "https://react-chat-3430b.appspot.com",
+    databaseURL: "https://react-chat-3430b.firebaseio.com",
     projectId: "react-chat-3430b",
     storageBucket: "react-chat-3430b.appspot.com",
     messagingSenderId: "76920641998",
@@ -14,4 +14,4 @@ const firebaseConfig = {
   };
 firebase.initializeApp(firebaseConfig);
 
-export default firebase;
+export default firebase
