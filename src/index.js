@@ -5,13 +5,20 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import Spinner from './Spinner';
 import registerServiceWorker from './registerServiceWorker';
-import { BrowserRouter, Switch, Route, withRouter } from "react-router-dom";
 import firebase from './firebase';
+
+import 'semantic-ui-css/semantic.min.css';
+
+import { 
+    BrowserRouter, 
+    Switch, 
+    Route, 
+    withRouter 
+} from "react-router-dom";
 
 import {createStore} from 'redux';
 import {Provider, connect} from 'react-redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import 'semantic-ui-css/semantic.min.css';
 import rootReducer from './reducers';
 import {setUser, clearUser} from './actions';
 
@@ -22,6 +29,7 @@ class Root extends React.Component {
         // console.log(this.props.isLoading)
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
+                //console.log(this.props);
                 this.props.setUser(user);
                 this.props.history.push('/'); 
             } else {
@@ -31,7 +39,9 @@ class Root extends React.Component {
         })
     }
     render() {
-        return this.props.isLoading ? <Spinner/> : (
+        return this.props.isLoading ? (
+            <Spinner/>
+        ) : (
                 <Switch>
                     <Route exact path="/" component={App}/>
                     <Route path="/login" component={Login}/>
